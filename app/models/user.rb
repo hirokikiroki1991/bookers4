@@ -13,6 +13,16 @@ class User < ApplicationRecord
          validates :name, length: { in: 2..19 }
 
 
+         #登録時にメールアドレスを不要とする
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
+
+
         
 
 
