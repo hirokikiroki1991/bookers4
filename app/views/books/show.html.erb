@@ -1,0 +1,12 @@
+
+          <p>
+           <%= @book.book_title %>
+           <%= @book.user.name %>
+        
+  
+           <%= @book.created_at.strftime('%Y/%m/%d') %>
+        
+           <a href="#">202 いいね</a>
+           <a href="#comments">4</a>
+           <%= @book.book_comment %>
+          </p>

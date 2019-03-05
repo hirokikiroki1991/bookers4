@@ -1,0 +1,12 @@
+<h3>aaaa</h3>
+
+<% @books.each do |book| %>
+<p>
+  <%= link_to book_path(book.id) do %>
+  <%= book.book_title %>
+  <%= book.book_comment %>
+  <%#= book.user.name %>
+</p>
+
+<% end %>
+<% end %>
