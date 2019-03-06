@@ -1,5 +1,6 @@
 
           <p>
+            <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
            <%= @book.book_title %>
            <%= @book.user.name %>
         
@@ -9,4 +10,7 @@
            <a href="#">202 いいね</a>
            <a href="#comments">4</a>
            <%= @book.book_comment %>
+
+      <!--link_toのbook_pathはリンク先ではなく、これからどういう処理をするかの説明-->
+      <%= link_to "削除", book_path(@book), method: :delete %>
           </p>
