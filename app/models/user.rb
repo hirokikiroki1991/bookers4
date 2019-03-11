@@ -11,7 +11,8 @@ class User < ApplicationRecord
          attachment :profile_image
 
          validates :name, presence: true
-         validates :name, length: { in: 2..19 }
+         validates :name, length: { in: 1..200 }
+         validates :introduction, length: { maximum: 75 }
 
 
          #登録時にメールアドレスを不要とする

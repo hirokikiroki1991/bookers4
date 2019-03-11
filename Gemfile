@@ -50,6 +50,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver

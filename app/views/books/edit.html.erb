@@ -1,0 +1,21 @@
+
+<div class="row">
+        <div class="col-md-4 col-md-offset-4">
+              <div class="post">
+                <h1>New book</h1>
+                  <%= form_for(@book) do |f| %>
+                <h4>Editing Book</h4>
+                  <%= f.text_field :book_title , class: "book_title col-lg-12"%>
+                <h4>Opinion</h4>
+                   <%= f.text_area :book_comment, class: "book_body  col-lg-12" %>
+                   <br>
+                   <br>
+                   <p> </p>
+                <%= f.submit 'Create Book',class: 'btn btn-primary col-lg-12' %>
+                
+                <p> <%= link_to'back', :back, class:"back"%>|<%= link_to'show', book_path(@book.id)  %></p>
+
+                <% end %>
+
+              </div>
+            </div>

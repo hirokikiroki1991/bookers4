@@ -1,16 +1,76 @@
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
 
-          <p>
-            <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-           <%= @book.book_title %>
-           <%= @book.user.name %>
-        
-  
-           <%= @book.created_at.strftime('%Y/%m/%d') %>
-        
-           <a href="#">202 いいね</a>
-           <a href="#comments">4</a>
-           <%= @book.book_comment %>
+  <div class="container"> <!-- ここを追加 -->
+    <div class="row">
+      <div class="col-lg-3">
+        <h2 >User info</h2>
+          <div class = "profile_image">
+            <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+          </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+          <table class="table table-striped">
+            <tr><td>NAME<td><%= @user.name %>
+            <tr><td>Introduction<td> <%= @user.introduction %>
+          </table>
+            <%= link_to '', edit_user_path(@user.id), class: 'btn btn-default glyphicon glyphicon-wrench col-lg-12 edit_user_#{@user.id}' %>
+              <div class="post">
+                <h1>New book</h1>
+                  <%= form_for(@books) do |f| %>
+                <h4>Title</h4>
+                  <%= f.text_field :book_title , class: "book_title col-lg-12"%>
+                <h4>Opinion</h4>
+                   <%= f.text_area :book_comment, class: "book_body  col-lg-12" %>
+                   <br>
+                   <br>
+                   <p> </p>
+                <%= f.submit 'Create Book',class: 'btn btn-primary col-lg-12' %>
+                <% end %>
+              </div>
+      </div>
+   
+      <div class="col-lg-9">  <!-- ここを追加 -->
+        <table class="table table-striped">
+        <thead>
+          <tr>
+            <h2>Book detail</h2>
+          </tr>
+        </thead>
 
-      <!--link_toのbook_pathはリンク先ではなく、これからどういう処理をするかの説明-->
-      <%= link_to "削除", book_path(@book), method: :delete %>
-          </p>
+      <tbody>
+       <td>
+         <%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+         <br>
+         <span>  <%= link_to @book.user.name, user_path(@user.id), class: 'book_#{@book.id}' %></span>
+       </td>
+      
+       <td>
+        <%= link_to @book.book_title, book_path(@book.id),class: "book_#{@book.id}" %>
+       </td>
+       <td></td>
+       <td>
+         <%= @book.book_comment %>
+      </td>
+      <td></td>
+       <td>
+        <% if @user.id == @book.user.id %>
+        <%= link_to "edit", edit_book_path(@book), class:"label label-success edit_book_#{@book.id}" %>
+      </td>
+      <td>
+        <%= link_to "destroy", book_path(@book), method: :delete, class:"label label-danger destroy_#{@book.id}",data: {confirm:'Are you sure?？'} %>
+      </td>
+      <% end %>
+       <td></td>
+     </tbody>
+</table>
+</div>
+</div>
+</div>
