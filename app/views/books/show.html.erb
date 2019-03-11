@@ -38,19 +38,22 @@
       </div>
    
       <div class="col-lg-9">  <!-- ここを追加 -->
-        <table class="table table-striped">
-        <thead>
-          <tr>
+        <table class="table table-default">
             <h2>Book detail</h2>
-          </tr>
+        <thead>
+          <th></th>
+           <th></th>
+          <th></th>
         </thead>
+
 
       <tbody>
        <td>
-         <%= attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
-         <br>
-         <span>  <%= link_to @book.user.name, user_path(@user.id), class: 'book_#{@book.id}' %></span>
+         <%= link_to attachment_image_tag @book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg",:size => "40x40" %>
+       <br>
+       <span><%= link_to @book.user.name, user_path(@book.user.id), class: "user_#{@user.id}" %>
        </td>
+
       
        <td>
         <%= link_to @book.book_title, book_path(@book.id),class: "book_#{@book.id}" %>

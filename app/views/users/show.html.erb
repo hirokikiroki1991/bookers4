@@ -65,18 +65,18 @@
 
     <div class="col-lg-9">  <!-- ここを追加 -->
       <table class="table table-default">
-        <thead>
-
-
-          <h2>Book detail</h2>
-         
+          <h2>Books</h2>
+         <thead>
+          <th></th>
+           <th>Title</th>
+          <th>Opinion</th>
         </thead>
 
     <tbody>
        <% @books.each do |book| %>
      <tr>
        <td>
-         <%=link_to attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg" %>
+         <%=link_to attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg",:size => "40x40" %>
        </td>
        <td>
           <%= link_to book.book_title, book_path(book.id), class: 'book_#{@book.id}'  %>

@@ -13,7 +13,7 @@
                    <p> </p>
                 <%= f.submit 'Create Book',class: 'btn btn-primary col-lg-12' %>
                 
-                <p> <%= link_to'back', :back, class:"back"%>|<%= link_to'show', book_path(@book.id)  %></p>
+                <p> <%= link_to'back', :back, class:"back"%>|<%= link_to'show', book_path(@book.id), class:"book_#{@book.id}"  %></p>
 
                 <% end %>
 
