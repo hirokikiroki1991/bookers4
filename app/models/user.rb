@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
          validates :name, presence: true
          validates :name, length: { in: 1..200 }
-         validates :introduction, length: { maximum: 75 }
+         validates :introduction, length: { maximum: 50 }
 
 
          #登録時にメールアドレスを不要とする
